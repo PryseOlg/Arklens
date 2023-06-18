@@ -3,4 +3,5 @@
     <string name="title_map">Map</string>
     <string name="title_characters">Characters</string>
     <string name="title_dice">Dice</string>
+    <string name="title_character">Character</string>
 </resources>

@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.FragmentMapBinding
 
 class MapFragment : Fragment() {
@@ -22,11 +25,15 @@ class MapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
         val mapViewModel =
-            ViewModelProvider(this).get(MapViewModel::class.java)
+            ViewModelProvider(this)[MapViewModel::class.java]
 
         _binding = FragmentMapBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        ImageUtils.loadMap(binding.map)
 
         val textView: TextView = binding.textHome
         mapViewModel.text.observe(viewLifecycleOwner) {

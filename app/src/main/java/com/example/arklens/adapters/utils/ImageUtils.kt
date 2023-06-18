@@ -6,6 +6,8 @@ import com.squareup.picasso.Picasso
 
 
 object ImageUtils {
+    private val mapUrl = "http://un1ver5e.keenetic.link:5000/map"
+
     private fun loadImage(imageUrl: String, imageView: ImageView, placeholder: Int, errorResId: Int) {
         try {
             Picasso.get().load(imageUrl)
@@ -24,5 +26,9 @@ object ImageUtils {
 
     fun loadItemIcon(imageUrl: String, imageView: ImageView) {
         return loadImage(imageUrl, imageView, R.drawable.character_icon, R.drawable.item_icon)
+    }
+
+    fun loadMap(imageView: ImageView) {
+        return loadImage(mapUrl, imageView, R.drawable.map_icon, R.drawable.map_icon)
     }
 }

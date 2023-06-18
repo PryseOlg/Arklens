@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arklens.R
-import com.example.arklens.adapters.CharacterAdapter
+import com.example.arklens.adapters.CharactersAdapters
 import com.example.arklens.databinding.FragmentCharactersBinding
 import com.example.arklens.interfaces.CharacterListener
 import com.example.arklens.models.Character
+import com.google.gson.Gson
 
 
 class CharactersFragment : Fragment(), CharacterListener {
@@ -25,7 +25,7 @@ class CharactersFragment : Fragment(), CharacterListener {
     // onDestroyView.
     private val binding get() = _binding!!
     private val viewModel = CharactersViewModel()
-    private val characterAdapter = CharacterAdapter(this)
+    private val charactersAdapters = CharactersAdapters(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,9 +40,9 @@ class CharactersFragment : Fragment(), CharacterListener {
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.characters.adapter = characterAdapter
+        binding.characters.adapter = charactersAdapters
         val observer = Observer<List<Character>> { newValue ->
-            characterAdapter.submitList(newValue)
+            charactersAdapters.submitList(newValue)
         }
         viewModel.liveData.observe(viewLifecycleOwner, observer)
         viewModel.init()
@@ -59,10 +59,13 @@ class CharactersFragment : Fragment(), CharacterListener {
     }
 
     override fun onClick(character: Character) {
+        val gson = Gson()
+        val characterJson = gson.toJson(character)
+
         val bundle = Bundle()
         bundle.apply {
-            putString("character_id", character.id)
+            putString("character", characterJson)
         }
-        findNavController().navigate(R.id.navigation_characters, bundle)
+        findNavController().navigate(R.id.navigation_character, bundle)
     }
 }

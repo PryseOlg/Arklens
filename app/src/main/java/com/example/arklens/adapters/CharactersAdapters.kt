@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arklens.R
 import com.example.arklens.adapters.utils.ImageUtils
-import com.example.arklens.databinding.CharacterBinding
+import com.example.arklens.databinding.FragmentCharacterBinding
 import com.example.arklens.interfaces.CharacterListener
 import com.example.arklens.models.Character
 
-class CharacterAdapter(val listener: CharacterListener) :
+class CharactersAdapters(val listener: CharacterListener) :
     ListAdapter<Character, RecyclerView.ViewHolder>(MyDiffCallback()) {
 
     override fun getItemViewType(position: Int): Int {
@@ -24,7 +24,7 @@ class CharacterAdapter(val listener: CharacterListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             R.id.navigation_characters -> {
-                val binding = CharacterBinding.inflate(
+                val binding = FragmentCharacterBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent, false
                 )
@@ -44,7 +44,7 @@ class CharacterAdapter(val listener: CharacterListener) :
 
     inner class CharacterHolder(
         private val context: Context,
-        private val binding: CharacterBinding
+        private val binding: FragmentCharacterBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
