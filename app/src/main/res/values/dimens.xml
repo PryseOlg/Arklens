@@ -2,4 +2,25 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="swipe_btn_height">16dp</dimen>
+    <dimen name="image_size">150dp</dimen>
+    <dimen name="profile_radius">15dp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="normal_text_size">20sp</dimen>
+    <dimen name="small_image_size">60dp</dimen>
+    <dimen name="stars_image_width">80dp</dimen>
+    <dimen name="starts_image_height">20dp</dimen>
+    <dimen name="big_text_size">24sp</dimen>
+    <dimen name="recycle_element_margin">20dp</dimen>
+    <dimen name="small_corner_radius">8dp</dimen>
+    <dimen name="info_block_image_size">40dp</dimen>
+    <dimen name="text_block_margin">8dp</dimen>
+    <dimen name="indentation">8dp</dimen>
+    <dimen name="ability_margin">12dp</dimen>
+    <dimen name="liked_fragment_margin">16dp</dimen>
+    <dimen name="liked_padding">12dp</dimen>
+    <dimen name="liked_size">100dp</dimen>
+    <dimen name="liked_info_margin">24dp</dimen>
+    <dimen name="portrait_image_padding">20dp</dimen>
+    <dimen name="portrait_image_size">200dp</dimen>
 </resources>
