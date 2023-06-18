@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.arklens.databinding.FragmentCharactersBinding
 
 class CharactersFragment : Fragment() {
@@ -16,24 +17,30 @@ class CharactersFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val viewModel = CharactersViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
         val charactersViewModel =
-            ViewModelProvider(this).get(CharactersViewModel::class.java)
+            ViewModelProvider(this)[CharactersViewModel::class.java]
 
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        charactersViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        viewModel.init()
+        val textView: TextView = binding.textCharacters
+        charactersViewModel.liveData.observe(viewLifecycleOwner) {
+            textView.text = it.joinToString("\n")
         }
         return root
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
