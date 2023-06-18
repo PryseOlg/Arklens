@@ -19,7 +19,7 @@ class CharactersViewModel : ViewModel(){
         CoroutineScope(Dispatchers.IO).launch {
             val result = RetrofitBuilder.arklensApi.getCharacters().await()
             liveData.postValue(result)
-            Log.e("error:", result.joinToString("\n"))
+            //Log.e("error:", result.joinToString("\n"))
         }
 
     }

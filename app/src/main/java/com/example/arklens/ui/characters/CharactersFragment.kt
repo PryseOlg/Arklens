@@ -6,11 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.arklens.R
+import com.example.arklens.adapters.CharacterAdapter
 import com.example.arklens.databinding.FragmentCharactersBinding
+import com.example.arklens.interfaces.CharacterListener
+import com.example.arklens.models.Character
+private val characterAdapter = CharacterAdapter()
 
-class CharactersFragment : Fragment() {
+class CharactersFragment : Fragment(), CharacterListener {
 
     private var _binding: FragmentCharactersBinding? = null
 
@@ -32,10 +40,15 @@ class CharactersFragment : Fragment() {
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        binding.characters.adapter = characterAdapter
+        val observer = Observer<List<Character>> { newValue ->
+            characterAdapter.submitList(newValue)
+        }
+        viewModel.liveData.observe(viewLifecycleOwner, observer)
         viewModel.init()
-        val textView: TextView = binding.textCharacters
+        var view: RecyclerView = binding.characters
         charactersViewModel.liveData.observe(viewLifecycleOwner) {
-            textView.text = it.joinToString("\n")
+            view.= it.joinTo("\n")
         }
         return root
     }
@@ -45,5 +58,13 @@ class CharactersFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(character: Character) {
+        val bundle = Bundle()
+        bundle.apply {
+            putString("character_id", character.id)
+        }
+        findNavController().navigate(R.id.navigation_characters, bundle)
     }
 }

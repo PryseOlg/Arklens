@@ -50,7 +50,7 @@ class CharacterAdapter(val listener: CharacterListener) :
                 listener.onClick(character)
             }
             name.text = character.personalInfo.name
-            /*characterBlock.backgroundTintList =
+            characterBlock.backgroundTintList =
                 ColorStateList.valueOf(
                     ContextCompat.getColor(
                         context,
@@ -76,7 +76,7 @@ class CharacterAdapter(val listener: CharacterListener) :
                 stars.setImageResource(ProfileUtils.getImageByStars(character.stars))
             } else {
                 stars.setImageResource(R.drawable.broken_image)
-            }*/
+            }
         }
     }
 
