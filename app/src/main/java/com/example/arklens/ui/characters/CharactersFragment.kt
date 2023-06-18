@@ -9,14 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arklens.R
 import com.example.arklens.adapters.CharacterAdapter
 import com.example.arklens.databinding.FragmentCharactersBinding
 import com.example.arklens.interfaces.CharacterListener
 import com.example.arklens.models.Character
-private val characterAdapter = CharacterAdapter()
+
 
 class CharactersFragment : Fragment(), CharacterListener {
 
@@ -26,6 +25,7 @@ class CharactersFragment : Fragment(), CharacterListener {
     // onDestroyView.
     private val binding get() = _binding!!
     private val viewModel = CharactersViewModel()
+    private val characterAdapter = CharacterAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,9 +47,7 @@ class CharactersFragment : Fragment(), CharacterListener {
         viewModel.liveData.observe(viewLifecycleOwner, observer)
         viewModel.init()
         var view: RecyclerView = binding.characters
-        charactersViewModel.liveData.observe(viewLifecycleOwner) {
-            view.= it.joinTo("\n")
-        }
+        charactersViewModel.liveData.observe(viewLifecycleOwner, observer)
         return root
     }
 

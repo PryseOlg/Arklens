@@ -1,5 +1,6 @@
 package com.example.arklens.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arklens.R
+import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.CharacterBinding
 import com.example.arklens.interfaces.CharacterListener
 import com.example.arklens.models.Character
@@ -45,12 +47,20 @@ class CharacterAdapter(val listener: CharacterListener) :
         private val binding: CharacterBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(character: Character) = with(binding) {
             itemView.setOnClickListener {
                 listener.onClick(character)
             }
+            val className = character.`class`.name
+            val level = character.`class`.level
             name.text = character.personalInfo.name
-            characterBlock.backgroundTintList =
+            race.text = character.race.name
+            role.text = "$className $level"
+
+            ImageUtils.loadCharacterPortrait(character.personalInfo.portraitUrl, icon)
+
+        /*characterBlock.backgroundTintList =
                 ColorStateList.valueOf(
                     ContextCompat.getColor(
                         context,
@@ -76,7 +86,7 @@ class CharacterAdapter(val listener: CharacterListener) :
                 stars.setImageResource(ProfileUtils.getImageByStars(character.stars))
             } else {
                 stars.setImageResource(R.drawable.broken_image)
-            }
+            }*/
         }
     }
 

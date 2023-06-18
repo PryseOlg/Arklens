@@ -5,6 +5,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ArklensApiService {
+    private val defaultCount: Int
+        get() = 23
+
     @GET("character/fake")
-    fun getCharacters(@Query("count") count: Int = 5): Call<List<Character>>
+    fun getCharacters(@Query("count") count: Int = defaultCount): Call<List<Character>>
 }
