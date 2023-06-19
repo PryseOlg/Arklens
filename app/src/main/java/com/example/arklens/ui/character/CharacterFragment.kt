@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.arklens.R
 import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.FragmentCharacterBinding
@@ -25,8 +27,7 @@ class CharacterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-
-
+        
         _binding = FragmentCharacterBinding.inflate(inflater, container, false)
         val root: View = binding.root
         init()
@@ -47,9 +48,6 @@ class CharacterFragment : Fragment() {
 
     private fun initPortrait() {
         val characterObserver = Observer<Character> { newValue ->
-            if (newValue != null) {
-                //initInfoBlock(newValue)
-            }
 
             ImageUtils.loadCharacterPortrait(
                 newValue.personalInfo.portraitUrl,
@@ -59,19 +57,6 @@ class CharacterFragment : Fragment() {
 
         viewModel.liveData.observe(viewLifecycleOwner, characterObserver)
     }
-
-    /*private fun initInfoBlock(profile: Character) {
-        val infoBlock = binding.characterBlock
-        infoBlock.name.text = character.name
-        ImageUtils.loadCharacterPortrait(
-            ProfileUtils.getImageFromGoogle(profile.element.image),
-            infoBlock.element,
-        )
-        ProfileUtils.loadImage(
-            ProfileUtils.getImageFromGoogle(profile.weaponType.image),
-            infoBlock.weaponType,
-        )
-    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

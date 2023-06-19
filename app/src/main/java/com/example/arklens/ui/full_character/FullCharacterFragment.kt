@@ -45,10 +45,6 @@ class FullCharacterFragment : Fragment() {
 
     private fun initPortrait() {
         val characterObserver = Observer<Character> { newValue ->
-            if (newValue != null) {
-                //initInfoBlock(newValue)
-            }
-
             ImageUtils.loadCharacterPortrait(
                 newValue.personalInfo.portraitUrl,
                 binding.image)
@@ -57,25 +53,16 @@ class FullCharacterFragment : Fragment() {
             binding.background.text = newValue.personalInfo.background
             binding.gender.text = newValue.personalInfo.gender
             binding.className.text = newValue.`class`.name
-
+            /*binding.backButton.setOnClickListener {
+                // Вернуться на предыдущий фрагмент
+                findNavController().popBackStack()
+            }*/
 
         }
 
         viewModel.liveData.observe(viewLifecycleOwner, characterObserver)
     }
 
-    /*private fun initInfoBlock(profile: Character) {
-        val infoBlock = binding.characterBlock
-        infoBlock.name.text = character.name
-        ImageUtils.loadCharacterPortrait(
-            ProfileUtils.getImageFromGoogle(profile.element.image),
-            infoBlock.element,
-        )
-        ProfileUtils.loadImage(
-            ProfileUtils.getImageFromGoogle(profile.weaponType.image),
-            infoBlock.weaponType,
-        )
-    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()
