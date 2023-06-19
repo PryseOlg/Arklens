@@ -27,7 +27,7 @@ class CharacterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        
+
         _binding = FragmentCharacterBinding.inflate(inflater, container, false)
         val root: View = binding.root
         init()

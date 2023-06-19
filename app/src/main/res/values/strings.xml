@@ -9,4 +9,6 @@
     <string name="name">Имя</string>
     <string name="picture">picture</string>
     <string name="icon">icon</string>
+    <string name="roll_button_text">Бросить кубик</string>
+    <string name="roll">Roll</string>
 </resources>

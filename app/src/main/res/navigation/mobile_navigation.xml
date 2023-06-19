@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_dice"
-        android:name="com.example.arklens.ui.dice.DiceFragment"
+        android:name="com.example.arklens.ui.die.DieFragment"
         android:label="@string/title_dice"
-        tools:layout="@layout/fragment_dice" />
+        tools:layout="@layout/fragment_die" />
 
     <fragment
         android:id="@+id/navigation_full_character"
