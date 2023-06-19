@@ -66,6 +66,6 @@ class CharactersFragment : Fragment(), CharacterListener {
         bundle.apply {
             putString("character", characterJson)
         }
-        findNavController().navigate(R.id.navigation_character, bundle)
+        findNavController().navigate(R.id.navigation_full_character, bundle)
     }
 }

@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_dice" />
 
     <fragment
-        android:id="@+id/navigation_character"
-        android:name="com.example.arklens.ui.character.CharacterFragment"
+        android:id="@+id/navigation_full_character"
+        android:name="com.example.arklens.ui.full_character.FullCharacterFragment"
         android:label="@string/title_character"
-        tools:layout="@layout/fragment_character" />
+        tools:layout="@layout/full_character" />
 </navigation>

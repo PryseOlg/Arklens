@@ -8,4 +8,5 @@
     <string name="class_name">Роль</string>
     <string name="name">Имя</string>
     <string name="picture">picture</string>
+    <string name="icon">icon</string>
 </resources>
