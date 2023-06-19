@@ -4,4 +4,8 @@
     <string name="title_characters">Characters</string>
     <string name="title_dice">Dice</string>
     <string name="title_character">Character</string>
+    <string name="race_name">Раса</string>
+    <string name="class_name">Роль</string>
+    <string name="name">Имя</string>
+    <string name="picture">picture</string>
 </resources>
