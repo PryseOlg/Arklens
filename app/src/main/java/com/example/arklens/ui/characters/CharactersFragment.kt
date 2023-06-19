@@ -13,7 +13,11 @@ import com.example.arklens.adapters.CharactersAdapters
 import com.example.arklens.databinding.FragmentCharactersBinding
 import com.example.arklens.interfaces.CharacterListener
 import com.example.arklens.models.Character
+import com.example.arklens.repository.CharacterRepository
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class CharactersFragment : Fragment(), CharacterListener {
@@ -43,12 +47,23 @@ class CharactersFragment : Fragment(), CharacterListener {
         val observer = Observer<List<Character>> { newValue ->
             charactersAdapters.submitList(newValue)
         }
+        binding.updateCharacter.setOnClickListener {
+            updateCharacter()
+        }
+
         viewModel.liveData.observe(viewLifecycleOwner, observer)
         viewModel.init(requireContext())
         charactersViewModel.liveData.observe(viewLifecycleOwner, observer)
         return root
     }
 
+    private fun updateCharacter() {
+        val characterRepository = CharacterRepository(requireContext())
+        CoroutineScope(Dispatchers.IO).launch {
+            val characters = characterRepository.fetchCharacters()
+            charactersAdapters.submitList(characters)
+        }
+    }
 
 
     override fun onDestroyView() {

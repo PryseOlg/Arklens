@@ -11,4 +11,5 @@
     <string name="icon">icon</string>
     <string name="roll_button_text">Бросить кубик</string>
     <string name="roll">Roll</string>
+    <string name="update">update</string>
 </resources>
