@@ -7,13 +7,41 @@ import com.example.arklens.models.Die
 
 class DieViewModel : ViewModel() {
 
-    private val _diceValue = MutableLiveData<Int>()
-    val diceValue: LiveData<Int> get() = _diceValue
+    private val _diceValues = MutableLiveData<List<Die>>()
+    val diceValues: LiveData<List<Die>> get() = _diceValues
 
-    private val die = Die(6)
+    private val diceList = mutableListOf<Die>()
 
-    fun rollDie() {
-        val result = die.throwDie()
-        _diceValue.value = result
+    init {
+        // Инициализируем начальный список кубиков
+        repeat(NUM_DICE) {
+            diceList.add(Die(4))
+            diceList.add(Die(6))
+            diceList.add(Die(8))
+            diceList.add(Die(10))
+            diceList.add(Die(20))
+            diceList.add(Die(100))
+        }
+        updateDiceValues()
+    }
+
+    fun rollDice() {
+        for (die in diceList) {
+            die.roll()
+        }
+        updateDiceValues()
+    }
+
+    fun rollDie(position: Int) {
+        diceList[position].roll()
+        updateDiceValues()
+    }
+
+    private fun updateDiceValues() {
+        _diceValues.value = diceList.toList()
+    }
+
+    companion object {
+        private const val NUM_DICE = 1
     }
 }

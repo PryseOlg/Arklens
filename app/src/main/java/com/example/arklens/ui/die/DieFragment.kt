@@ -5,19 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.arklens.models.Die
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.arklens.adapters.DiceAdapter
+import com.example.arklens.adapters.DiceClickListener
 import com.example.arklens.databinding.FragmentDieBinding
 
-class DieFragment : Fragment() {
+class DieFragment : Fragment(), DiceClickListener {
 
     private lateinit var binding: FragmentDieBinding
-    private lateinit var die: Die
+    private lateinit var viewModel: DieViewModel
+    private lateinit var adapter: DiceAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDieBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -25,11 +29,24 @@ class DieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        die = Die(6)
-        binding.rollButton.setOnClickListener {
-            val result = die.throwDie()
-            binding.resultTextView.text = result.toString()
+        viewModel = ViewModelProvider(this).get(DieViewModel::class.java)
+
+        adapter = DiceAdapter(emptyList(), this)
+        binding.diceRecyclerView.adapter = adapter
+        binding.diceRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        viewModel.diceValues.observe(viewLifecycleOwner) { diceValues ->
+            adapter.updateDiceList(diceValues)
         }
+
+/*        binding.rollButton.setOnClickListener {
+            viewModel.rollDice()
+        }*/
+    }
+
+    override fun onDiceClick(position: Int) {
+        viewModel.rollDie(position)
     }
 }
+
 

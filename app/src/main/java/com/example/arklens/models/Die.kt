@@ -3,7 +3,10 @@ package com.example.arklens.models
 import kotlin.random.Random
 
 class Die(private val maximum: Int) {
-    fun throwDie() : Int {
-        return Random.Default.nextInt(1, maximum);
+    var diceValue: Int = 1
+        private set
+
+    fun roll() {
+        diceValue = Random.Default.nextInt(1, maximum + 1)
     }
 }
