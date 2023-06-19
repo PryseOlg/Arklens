@@ -25,12 +25,6 @@ class DieViewModel : ViewModel() {
         updateDiceValues()
     }
 
-    fun rollDice() {
-        for (die in diceList) {
-            die.roll()
-        }
-        updateDiceValues()
-    }
 
     fun rollDie(position: Int) {
         diceList[position].roll()

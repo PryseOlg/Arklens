@@ -72,6 +72,7 @@
 
 
             <ImageView
+                android:id="@+id/image_die"
                 android:layout_width="@dimen/image_size"
                 android:layout_height="@dimen/image_size"
                 android:maxHeight="@dimen/image_size"

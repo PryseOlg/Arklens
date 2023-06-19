@@ -31,7 +31,7 @@ class DieFragment : Fragment(), DiceClickListener {
 
         viewModel = ViewModelProvider(this).get(DieViewModel::class.java)
 
-        adapter = DiceAdapter(emptyList(), this)
+        adapter = DiceAdapter(context, emptyList(), this)
         binding.diceRecyclerView.adapter = adapter
         binding.diceRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -39,9 +39,6 @@ class DieFragment : Fragment(), DiceClickListener {
             adapter.updateDiceList(diceValues)
         }
 
-/*        binding.rollButton.setOnClickListener {
-            viewModel.rollDice()
-        }*/
     }
 
     override fun onDiceClick(position: Int) {
