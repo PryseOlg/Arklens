@@ -45,8 +45,7 @@ class CharactersFragment : Fragment(), CharacterListener {
             charactersAdapters.submitList(newValue)
         }
         viewModel.liveData.observe(viewLifecycleOwner, observer)
-        viewModel.init()
-        var view: RecyclerView = binding.characters
+        viewModel.init(requireContext())
         charactersViewModel.liveData.observe(viewLifecycleOwner, observer)
         return root
     }
