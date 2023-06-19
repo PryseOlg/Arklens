@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arklens.R
 import com.example.arklens.models.Die
+import kotlin.math.max
 
 interface DiceClickListener {
     fun onDiceClick(position: Int)
@@ -22,7 +23,7 @@ class DiceAdapter(private var diceList: List<Die>, private val listener: DiceCli
 
     override fun onBindViewHolder(holder: DiceViewHolder, position: Int) {
         val die = diceList[position]
-        holder.bind(die)
+        holder.bind(die, position)
     }
 
     override fun getItemCount(): Int {
@@ -35,16 +36,20 @@ class DiceAdapter(private var diceList: List<Die>, private val listener: DiceCli
     }
 
     inner class DiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val diceNameTextView: TextView = itemView.findViewById(R.id.diceNameTextView)
         private val diceValueTextView: TextView = itemView.findViewById(R.id.diceValueTextView)
         private val rollButton: Button = itemView.findViewById(R.id.rollButton)
 
-        fun bind(die: Die) {
+        fun bind(die: Die, position: Int) {
+            // Установка имени кубика
+            diceNameTextView.text = "Кубик ${die.max}"
+            // Установка значения кубика
             diceValueTextView.text = die.diceValue.toString()
 
             rollButton.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    listener.onDiceClick(position)
+                val adapterPosition = adapterPosition
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    listener.onDiceClick(adapterPosition)
                 }
             }
         }
