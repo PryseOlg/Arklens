@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/profile_radius"
-                app:strokeWidth="0dp">
+                android:layout_marginBottom="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
@@ -49,60 +49,107 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                app:cardCornerRadius="@dimen/profile_radius">
+                app:cardCornerRadius="15dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:background="#e6e6e6"
+                    app:cardCornerRadius="100dp">
 
 
                     <LinearLayout
-                        android:id="@+id/birthday_block"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/text_block_margin"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="MissingConstraints">
-
-                        <TextView
-                            android:id="@+id/class_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Класс" />
-
-                        <TextView
-                            android:id="@+id/gender"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/indentation"
-                            android:text="Пол" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/description_block"
+                        android:id="@+id/personal_block"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/text_block_margin"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/birthday_block">
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/name" />
+
+                        <TextView
+                            android:id="@+id/class_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/class_name" />
+
+                        <TextView
+                            android:id="@+id/gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/gender" />
+
+                        <TextView
+                            android:id="@+id/age"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/age" />
+
+                        <TextView
+                            android:id="@+id/alignment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/alignment" />
 
                         <TextView
                             android:id="@+id/race"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Раса" />
+                            android:text="@string/Race" />
 
                         <TextView
                             android:id="@+id/background"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="История" />
+                            android:text="@string/history" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/characteristic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/text_block_margin"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/personal_block">
+
+                        <TextView
+                            android:id="@+id/characteristic_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/characteristic" />
+
+                        <TextView
+                            android:id="@+id/stat_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats" />
+
+                        <TextView
+                            android:id="@+id/skill_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/skills" />
+
+                        <TextView
+                            android:id="@+id/inventory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/inventory" />
+
+
+                    </LinearLayout>
+
+
 
 
 

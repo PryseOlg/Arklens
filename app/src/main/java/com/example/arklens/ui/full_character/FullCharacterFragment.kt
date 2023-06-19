@@ -49,10 +49,18 @@ class FullCharacterFragment : Fragment() {
                 newValue.personalInfo.portraitUrl,
                 binding.image)
 
+            binding.name.text = newValue.personalInfo.name
             binding.race.text = newValue.race.name
             binding.background.text = newValue.personalInfo.background
             binding.gender.text = newValue.personalInfo.gender
             binding.className.text = newValue.`class`.name
+            binding.age.text = newValue.personalInfo.age.toString()
+            binding.alignment.text = newValue.personalInfo.alignment
+
+            /*binding.characteristicSet.text = newValue.characteristicSet.strength.toString()
+            binding.statSet.text = newValue.statSet.toString()
+            binding.skillSet.text = newValue.skillSet.toString()
+            binding.inventory.text = newValue.inventory.toString()*/
             /*binding.backButton.setOnClickListener {
                 // Вернуться на предыдущий фрагмент
                 findNavController().popBackStack()

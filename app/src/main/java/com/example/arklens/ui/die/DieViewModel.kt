@@ -15,16 +15,17 @@ class DieViewModel : ViewModel() {
     init {
         // Инициализируем начальный список кубиков
         repeat(NUM_DICE) {
+            diceList.add(Die(3))
             diceList.add(Die(4))
             diceList.add(Die(6))
             diceList.add(Die(8))
             diceList.add(Die(10))
+            diceList.add(Die(12))
             diceList.add(Die(20))
             diceList.add(Die(100))
         }
         updateDiceValues()
     }
-
 
     fun rollDie(position: Int) {
         diceList[position].roll()

@@ -22,60 +22,78 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#e6e6e6"
+            android:background="#ddeeff"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="0dp"
                 android:text="@string/name"
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/default_text_size"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/icon"
+                app:layout_constraintEnd_toStartOf="@+id/materialCardView"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="10dp" />
 
             <TextView
                 android:id="@+id/race"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="200dp"
                 android:text="@string/race_name"
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/default_text_size"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/icon"
+                app:layout_constraintEnd_toStartOf="@+id/materialCardView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
             <TextView
                 android:id="@+id/role"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
                 android:text="@string/class_name"
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/default_text_size"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/icon"
+                app:layout_constraintEnd_toStartOf="@+id/materialCardView"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/race"
                 tools:ignore="MissingConstraints" />
 
-            <ImageView
-                android:id="@+id/icon"
-                android:layout_width="@dimen/image_size"
-                android:layout_height="@dimen/image_size"
-                android:maxHeight="@dimen/image_size"
-                android:paddingTop="10dp"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="@dimen/profile_radius"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/character_icon"
-                android:contentDescription="@string/picture" />
+                app:layout_constraintVertical_bias="0.492"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/picture"
+                    android:maxHeight="@dimen/image_size"
+                    android:src="@drawable/character_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </com.google.android.material.card.MaterialCardView>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

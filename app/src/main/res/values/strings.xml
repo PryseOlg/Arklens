@@ -12,4 +12,13 @@
     <string name="roll_button_text">Бросить кубик</string>
     <string name="roll">Roll</string>
     <string name="update">update</string>
+    <string name="gender">Пол</string>
+    <string name="age">Возраст</string>
+    <string name="alignment">Мировоззрение</string>
+    <string name="history">История</string>
+    <string name="Race">Раса</string>
+    <string name="characteristic">Характеристики</string>
+    <string name="stats">Навыки</string>
+    <string name="skills">Скилы</string>
+    <string name="inventory">Инвентарь</string>
 </resources>
