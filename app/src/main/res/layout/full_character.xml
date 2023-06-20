@@ -183,15 +183,37 @@
                         app:layout_constraintTop_toBottomOf="@+id/personal_block">
 
                         <TextView
-                            android:id="@+id/stat_set"
+                            android:id="@+id/fortitude"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/stats" />
 
+                        <TextView
+                            android:id="@+id/reflex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats" />
+
+                        <TextView
+                            android:id="@+id/will"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats" />
+
+                        <TextView
+                            android:id="@+id/concentration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats" />
+
+                        <TextView
+                            android:id="@+id/perception"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats" />
+
+
                     </LinearLayout>
-
-
-
 
                         <TextView
                             android:id="@+id/skill_set"

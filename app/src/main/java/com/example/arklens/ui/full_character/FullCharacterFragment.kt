@@ -12,6 +12,7 @@ import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.FullCharacterBinding
 import com.example.arklens.models.Character
 import com.example.arklens.models.Characteristic
+import com.example.arklens.models.Stat
 import com.google.gson.Gson
 
 class FullCharacterFragment : Fragment() {
@@ -67,11 +68,12 @@ class FullCharacterFragment : Fragment() {
             binding.wisdom.text = "Мудрость: " + displayCharacteristic(newValue.characteristics.wisdom)
             binding.charisma.text = "Харизма: " + displayCharacteristic(newValue.characteristics.charisma)
 
+            binding.fortitude.text = "Сила духа: " + displayStat(newValue.stats.fortitude)
+            binding.reflex.text = "Реакция: " + displayStat(newValue.stats.reflex)
+            binding.will.text = "Воля: " + displayStat(newValue.stats.will)
+            binding.concentration.text = "Концетрация: " + displayStat(newValue.stats.concentration)
+            binding.perception.text = "Внимание: " + displayStat(newValue.stats.perception)
 
-
-
-
-            binding.statSet.text = newValue.stats.toString()
             binding.skillSet.text = newValue.skills.toString()
             binding.inventory.text = newValue.inventory.toString()
 
@@ -89,6 +91,11 @@ class FullCharacterFragment : Fragment() {
     private fun displayCharacteristic(characteristic: Characteristic): String {
         val value = if (characteristic.value >= 0) "+${characteristic.value}" else characteristic.value.toString()
         return "${characteristic.base} $value"
+    }
+
+    private fun displayStat(stat: Stat): String {
+        val value = if (stat.`class` >= 0) "+${stat.`class`}" else stat.`class`.toString()
+        return "${stat.additional} $value"
     }
 
     override fun onDestroyView() {
