@@ -21,4 +21,6 @@
     <string name="stats">Навыки</string>
     <string name="skills">Скилы</string>
     <string name="inventory">Инвентарь</string>
+    <string name="strength">сила</string>
+    <string name="dexterity">Ловкость</string>
 </resources>

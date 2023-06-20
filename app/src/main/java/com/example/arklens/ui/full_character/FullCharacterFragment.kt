@@ -1,5 +1,6 @@
 package com.example.arklens.ui.full_character
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.FullCharacterBinding
 import com.example.arklens.models.Character
+import com.example.arklens.models.Characteristic
 import com.google.gson.Gson
 
 class FullCharacterFragment : Fragment() {
@@ -43,6 +45,7 @@ class FullCharacterFragment : Fragment() {
         initPortrait()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initPortrait() {
         val characterObserver = Observer<Character> { newValue ->
             ImageUtils.loadCharacterPortrait(
@@ -57,10 +60,22 @@ class FullCharacterFragment : Fragment() {
             binding.age.text = newValue.personalInfo.age.toString()
             binding.alignment.text = newValue.personalInfo.alignment
 
-            /*binding.characteristicSet.text = newValue.characteristicSet.strength.toString()
-            binding.statSet.text = newValue.statSet.toString()
-            binding.skillSet.text = newValue.skillSet.toString()
-            binding.inventory.text = newValue.inventory.toString()*/
+            binding.strength.text = "Сила: " + displayCharacteristic(newValue.characteristics.strength)
+            binding.dexterity.text = "Ловкость: "+  displayCharacteristic(newValue.characteristics.dexterity)
+            binding.constitution.text =  "Выносливость: " + displayCharacteristic(newValue.characteristics.constitution)
+            binding.intelligence.text = "Интеллект: " + displayCharacteristic(newValue.characteristics.intelligence)
+            binding.wisdom.text = "Мудрость: " + displayCharacteristic(newValue.characteristics.wisdom)
+            binding.charisma.text = "Харизма: " + displayCharacteristic(newValue.characteristics.charisma)
+
+
+
+
+
+            binding.statSet.text = newValue.stats.toString()
+            binding.skillSet.text = newValue.skills.toString()
+            binding.inventory.text = newValue.inventory.toString()
+
+
             /*binding.backButton.setOnClickListener {
                 // Вернуться на предыдущий фрагмент
                 findNavController().popBackStack()
@@ -71,6 +86,10 @@ class FullCharacterFragment : Fragment() {
         viewModel.liveData.observe(viewLifecycleOwner, characterObserver)
     }
 
+    private fun displayCharacteristic(characteristic: Characteristic): String {
+        val value = if (characteristic.value >= 0) "+${characteristic.value}" else characteristic.value.toString()
+        return "${characteristic.base} $value"
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

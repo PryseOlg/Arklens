@@ -116,6 +116,16 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/text_block_margin"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/personal_block">
+
+                    <LinearLayout
                         android:id="@+id/characteristic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -126,16 +136,62 @@
                         app:layout_constraintTop_toBottomOf="@+id/personal_block">
 
                         <TextView
-                            android:id="@+id/characteristic_set"
+                            android:id="@+id/strength"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/characteristic" />
+                            android:text="@string/strength" />
+
+                        <TextView
+                            android:id="@+id/dexterity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dexterity" />
+
+                        <TextView
+                            android:id="@+id/constitution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dexterity" />
+
+                        <TextView
+                            android:id="@+id/intelligence"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dexterity" />
+
+                        <TextView
+                            android:id="@+id/wisdom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dexterity" />
+
+                        <TextView
+                            android:id="@+id/charisma"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dexterity" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/stats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/text_block_margin"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/personal_block">
 
                         <TextView
                             android:id="@+id/stat_set"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/stats" />
+
+                    </LinearLayout>
+
+
+
 
                         <TextView
                             android:id="@+id/skill_set"
