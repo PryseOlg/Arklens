@@ -311,11 +311,41 @@
 
                         </LinearLayout>
 
-                        <TextView
+                        <LinearLayout
                             android:id="@+id/inventory"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/inventory" />
+                            android:layout_marginTop="@dimen/text_block_margin"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/personal_block">
+
+                            <TextView
+                                android:id="@+id/money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/inventory" />
+
+                            <LinearLayout
+                                android:id="@+id/items"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/text_block_margin"
+                                android:orientation="vertical"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/personal_block">
+
+                                <TextView
+                                    android:id="@+id/item"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/inventory" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 

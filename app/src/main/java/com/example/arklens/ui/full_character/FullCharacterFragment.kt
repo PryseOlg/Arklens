@@ -90,11 +90,11 @@ class FullCharacterFragment : Fragment() {
             binding.survival.text = "Выживание: " + displaySkill(newValue.skills.survival)
             binding.swimming.text = "Плавание: " + displaySkill(newValue.skills.swimming)
 
+            binding.money.text = "Деньги: " + newValue.inventory.money.totalGold.toString()
+
+            /*binding.item.text = newValue.inventory.items.toString()*/
 
 
-
-
-            binding.inventory.text = newValue.inventory.toString()
 
 
             /*binding.backButton.setOnClickListener {
