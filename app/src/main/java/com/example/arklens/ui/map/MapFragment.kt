@@ -1,13 +1,10 @@
 package com.example.arklens.ui.map
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.FragmentMapBinding
@@ -19,6 +16,7 @@ class MapFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
