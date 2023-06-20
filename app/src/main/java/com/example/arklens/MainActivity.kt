@@ -25,13 +25,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_characters)
-        )
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navController)
         navView.setupWithNavController(navController)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
     override fun onSupportNavigateUp(): Boolean {

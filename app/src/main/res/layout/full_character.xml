@@ -120,7 +120,8 @@
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/personal_block">
+                        app:layout_constraintTop_toBottomOf="@+id/personal_block"
+                        android:paddingBottom="20dp">
 
                         <TextView
                             android:id="@+id/characteristic_set"
