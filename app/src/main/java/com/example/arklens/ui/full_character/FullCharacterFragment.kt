@@ -12,6 +12,7 @@ import com.example.arklens.adapters.utils.ImageUtils
 import com.example.arklens.databinding.FullCharacterBinding
 import com.example.arklens.models.Character
 import com.example.arklens.models.Characteristic
+import com.example.arklens.models.Skill
 import com.example.arklens.models.Stat
 import com.google.gson.Gson
 
@@ -68,13 +69,31 @@ class FullCharacterFragment : Fragment() {
             binding.wisdom.text = "Мудрость: " + displayCharacteristic(newValue.characteristics.wisdom)
             binding.charisma.text = "Харизма: " + displayCharacteristic(newValue.characteristics.charisma)
 
-            binding.fortitude.text = "Сила духа: " + displayStat(newValue.stats.fortitude)
+            binding.fortitude.text = "Стойкость: " + displayStat(newValue.stats.fortitude)
             binding.reflex.text = "Реакция: " + displayStat(newValue.stats.reflex)
             binding.will.text = "Воля: " + displayStat(newValue.stats.will)
             binding.concentration.text = "Концетрация: " + displayStat(newValue.stats.concentration)
             binding.perception.text = "Внимание: " + displayStat(newValue.stats.perception)
 
-            binding.skillSet.text = newValue.skills.toString()
+            binding.acrobatics.text = "Акробатика: " + displaySkill(newValue.skills.acrobatics)
+            binding.climbing.text = "Лазание " + displaySkill(newValue.skills.climbing)
+            binding.diplomacy.text = "Дипломатия: " + displaySkill(newValue.skills.diplomacy)
+            binding.horseRiding.text = "Верховая езда: " + displaySkill(newValue.skills.horseRiding)
+            binding.knowledgeDungeons.text = "Знание подземелий: "+ displaySkill(newValue.skills.knowledgeDungeons)
+            binding.knowledgeMagic.text = "Знание магии: " + displaySkill(newValue.skills.knowledgeMagic)
+            binding.knowledgeNature.text = "Знание природы: " + displaySkill(newValue.skills.knowledgeNature)
+            binding.knowledgeReligion.text = "Знание религии: " + displaySkill(newValue.skills.knowledgeReligion)
+            binding.knowledgeWorld.text = "Знание мира: " + displaySkill(newValue.skills.knowledgeWorld)
+            binding.mechanics.text = "Механика: " + displaySkill(newValue.skills.mechanics)
+            binding.medicine.text = "Медецина: " + displaySkill(newValue.skills.medicine)
+            binding.stealth.text = "Скрытность: " + displaySkill(newValue.skills.stealth)
+            binding.survival.text = "Выживание: " + displaySkill(newValue.skills.survival)
+            binding.swimming.text = "Плавание: " + displaySkill(newValue.skills.swimming)
+
+
+
+
+
             binding.inventory.text = newValue.inventory.toString()
 
 
@@ -94,9 +113,14 @@ class FullCharacterFragment : Fragment() {
     }
 
     private fun displayStat(stat: Stat): String {
-        val value = if (stat.`class` >= 0) "+${stat.`class`}" else stat.`class`.toString()
-        return "${stat.additional} $value"
+        return if (stat.total > 0) "+${stat.total}" else stat.total.toString()
     }
+
+    private fun displaySkill(skill: Skill): String {
+        return if (skill.total > 0) "+${skill.total}" else skill.total.toString()
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

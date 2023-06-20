@@ -1,18 +1,18 @@
 package com.example.arklens.models
 
 data class SkillSet(
-    val Acrobatics: Skill,
-    val Climbing: Skill,
-    val Diplomacy: Skill,
-    val HorseRiding: Skill,
-    val KnowledgeDungeons: Skill,
-    val KnowledgeMagic: Skill,
-    val KnowledgeNature: Skill,
-    val KnowledgeReligion: Skill,
-    val KnowledgeWorld: Skill,
-    val Mechanics: Skill,
-    val Medicine: Skill,
-    val Stealth: Skill,
-    val Survival: Skill,
-    val Swimming: Skill) {
+    val acrobatics: Skill,
+    val climbing: Skill,
+    val diplomacy: Skill,
+    val horseRiding: Skill,
+    val knowledgeDungeons: Skill,
+    val knowledgeMagic: Skill,
+    val knowledgeNature: Skill,
+    val knowledgeReligion: Skill,
+    val knowledgeWorld: Skill,
+    val mechanics: Skill,
+    val medicine: Skill,
+    val stealth: Skill,
+    val survival: Skill,
+    val swimming: Skill) {
 }
